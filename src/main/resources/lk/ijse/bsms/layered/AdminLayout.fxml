@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bsms.layered.controller.AdminLayoutController">
+
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #F3F4F6;" >
+            <children>
+                <!-- Sidebar -->
+                <VBox maxHeight="Infinity" minHeight="469.0" style="-fx-background-color: linear-gradient(to bottom, #10B981, #059669); -fx-background-radius: 20;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <effect>
+                        <DropShadow color="#00000025" offsetX="2.0" offsetY="3.0" radius="15.0" />
+                    </effect>
+
+                    <children>
+                        <!-- Logo & Title -->
+                        <VBox alignment="CENTER" prefHeight="141.0" prefWidth="210.0" spacing="5">
+                            <children>
+                                <ImageView fitHeight="120.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <!--image>
+                                        <Image url="@images/pic_b-removebg-preview.png" />
+                                    </image>-->
+                                </ImageView>
+                                <Label alignment="CENTER" style="-fx-font-weight: bold; -fx-text-fill: #FFFFFF;" text="BOOKSHOP">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="28" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" style="-fx-text-fill: #E0F2E9;" text="Management System">
+                                    <font>
+                                        <Font name="Segoe UI" size="12" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets bottom="20.0" top="5.0" />
+                            </VBox.margin>
+                        </VBox>
+
+                        <Separator style="-fx-background-color: #FFFFFF40;" />
+                  <VBox prefHeight="16.0" prefWidth="210.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Label fx:id="lblDate" prefHeight="13.0" prefWidth="70.0" text="00:00:00">
+                           <font>
+                              <Font name="Segoe UI Black" size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="56.0" top="2.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+
+                        <!-- Navigation Buttons -->
+                        <VBox spacing="5.0" VBox.vgrow="ALWAYS">
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                            <children>
+                                <Button fx:id="btnDashboard" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickDashboard" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: #FFFFFF20; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="📊  Dashboard">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="15" />
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="btnItem" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickItem" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="📦  Item">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="15" />
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="btnSupplier" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickSupplier" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="🏢  Supplier">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="15" />
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="btnCustomer" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickCustomer" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="👥  Customer">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="15" />
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="btnOrder" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickOrder" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="🛒  Order">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="15" />
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="btnProfile" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickProfile" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="👤  Profile">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="15" />
+                                    </font>
+                                </Button>
+
+                                <Button fx:id="btnCategory" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickCategory" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="📑  Categories">
+                                    <font>
+                                        <Font name="Segoe UI Semibold" size="15" />
+                                    </font>
+                                </Button>
+                        <Button fx:id="btnCategory1" alignment="CENTER_LEFT" graphicTextGap="12.0" onAction="#clickReturn" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-cursor: hand;" styleClass="nav-btn" text="🔄 Return">
+                           <font>
+                              <Font name="Segoe UI Semibold" size="15" />
+                           </font>
+                        </Button>
+
+                                <!-- Logout Button -->
+                                <Button fx:id="btnLogOut" alignment="CENTER" onAction="#btnLogoutOnAction" prefHeight="45.0" prefWidth="210.0" style="-fx-background-color: #EF4444; -fx-background-radius: 12; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="🚪  Logout">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="15" />
+                                    </font>
+                                    <effect>
+                                        <DropShadow color="#EF444440" offsetY="2.0" radius="8.0" />
+                                    </effect>
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+
+                <!-- Main Content Area -->
+                <StackPane fx:id="mainContent" style="-fx-background-radius: 20; -fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <effect>
+                        <DropShadow color="#00000010" offsetY="2.0" radius="10.0" />
+                    </effect>
+                </StackPane>
+            </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+        </AnchorPane>
+    </children>
+</StackPane>

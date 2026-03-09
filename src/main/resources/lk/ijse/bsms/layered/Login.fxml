@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="Infinity" maxWidth="Infinity" minHeight="600.0" minWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bsms.layered.controller.LoginController">
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <!-- Left Panel with Gradient - 40% width -->
+                <AnchorPane prefHeight="800.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <!-- Background with gradient -->
+                        <AnchorPane prefHeight="800.0" prefWidth="440.0" style="-fx-background-color: linear-gradient(to bottom, #10B981, #059669);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <effect>
+                                <DropShadow color="#00000040" radius="10.0" />
+                            </effect>
+                        </AnchorPane>
+
+                        <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <ImageView fitHeight="280.0" fitWidth="380.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@images/pic_b-removebg-preview.png" />
+                                    </image>
+                                </ImageView>
+
+                                <VBox alignment="CENTER" spacing="15.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Book Shop" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="42.0" />
+                                            </font>
+                                            <fill>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                            </fill>
+                                        </Text>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Management System" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Segoe UI Semibold" size="22.0" />
+                                            </font>
+                                            <fill>
+                                                <Color red="0.9" green="1.0" blue="0.95" />
+                                            </fill>
+                                        </Text>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Manage your inventory with ease" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Segoe UI" size="15.0" />
+                                            </font>
+                                            <fill>
+                                                <Color red="0.8" green="0.95" blue="0.9" opacity="0.9" />
+                                            </fill>
+                                            <VBox.margin>
+                                                <Insets top="8.0" />
+                                            </VBox.margin>
+                                        </Text>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+
+                <!-- Right Panel with Modern Design - 60% width -->
+                <AnchorPane prefHeight="800.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="440.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <!-- Center Content Container -->
+                        <VBox alignment="CENTER" spacing="35.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="100.0">
+                            <children>
+                                <!-- Welcome Header -->
+                                <VBox alignment="CENTER" spacing="12.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="44.0" />
+                                            </font>
+                                            <fill>
+                                                <LinearGradient endX="1.0" endY="1.0">
+                                                    <stops>
+                                                        <Stop>
+                                                            <color>
+                                                                <Color red="0.0627" green="0.7255" blue="0.5059" />
+                                                            </color>
+                                                        </Stop>
+                                                        <Stop offset="1.0">
+                                                            <color>
+                                                                <Color red="0.0196" green="0.3961" blue="0.4118" />
+                                                            </color>
+                                                        </Stop>
+                                                    </stops>
+                                                </LinearGradient>
+                                            </fill>
+                                        </Text>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please login to your admin account" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Segoe UI" size="16.0" />
+                                            </font>
+                                            <fill>
+                                                <Color red="0.4" green="0.4" blue="0.4" />
+                                            </fill>
+                                        </Text>
+                                    </children>
+                                </VBox>
+
+                                <!-- Login Form -->
+                                <VBox maxWidth="450.0" prefWidth="450.0" spacing="25.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <!-- Username Field -->
+                                        <VBox spacing="10.0">
+                                            <children>
+                                                <Label text="Username" textFill="#374151">
+                                                    <font>
+                                                        <Font name="Segoe UI Semibold" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="userName" prefHeight="50.0" promptText="Enter your username" style="-fx-background-color: #F9FAFB; -fx-border-color: #D1D5DB; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 14; -fx-font-size: 15;">
+                                                    <font>
+                                                        <Font name="Segoe UI" size="15.0" />
+                                                    </font>
+                                                </TextField>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Password Field -->
+                                        <VBox spacing="10.0">
+                                            <children>
+                                                <Label text="Password" textFill="#374151">
+                                                    <font>
+                                                        <Font name="Segoe UI Semibold" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <PasswordField fx:id="userPassword" prefHeight="50.0" promptText="Enter your password" style="-fx-background-color: #F9FAFB; -fx-border-color: #D1D5DB; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 14; -fx-font-size: 15;">
+                                                    <font>
+                                                        <Font name="Segoe UI" size="15.0" />
+                                                    </font>
+                                                </PasswordField>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Login Button -->
+                                        <Button defaultButton="true" maxWidth="Infinity" onAction="#login" prefHeight="55.0" style="-fx-background-color: linear-gradient(to right, #10B981, #059669); -fx-background-radius: 10; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Login">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="18.0" />
+                                            </font>
+                                            <effect>
+                                                <DropShadow color="#10B98140" offsetY="3.0" radius="10.0" />
+                                            </effect>
+                                            <VBox.margin>
+                                                <Insets top="15.0" />
+                                            </VBox.margin>
+                                        </Button>
+                                    </children>
+                                </VBox>
+
+                                <!-- Footer Text -->
+                                <HBox alignment="CENTER" prefHeight="40.0">
+                                    <children>
+                                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="🔒 Secure Admin Access" textAlignment="CENTER">
+                                            <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                            </font>
+                                            <fill>
+                                                <Color red="0.6" green="0.6" blue="0.6" />
+                                            </fill>
+                                        </Text>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

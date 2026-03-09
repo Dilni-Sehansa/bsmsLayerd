@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="dashbord_form" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.bsms.layered.controller.DashboardController">
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #F3F4F6;">
+            <children>
+                <!-- Header -->
+                <HBox alignment="CENTER_LEFT" prefHeight="86.0" style="-fx-background-color: linear-gradient(to right, #10B981, #059669); -fx-background-radius: 15;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                    <children>
+                        <Label text="📊 BOOKSHOP DASHBOARD" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Bold" size="32.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="25.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <!-- User Profile Section -->
+                        <HBox alignment="CENTER" onMouseClicked="#logoutOnAction" prefHeight="53.0" prefWidth="175.0" spacing="12.0" style="-fx-background-color: #FFFFFF20; -fx-background-radius: 25; -fx-padding: 8 20 8 20;">
+                            <children>
+                                <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <!--<image>
+                                        <Image url="@images/customer%20b.png" />
+                                    </image>-->
+                                </ImageView>
+                                <VBox spacing="2.0">
+                                    <children>
+                                        <Label text="Admin User" textFill="WHITE">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Welcome Back" textFill="#E0F2E9">
+                                            <font>
+                                                <Font name="Segoe UI" size="11.0" />
+                                            </font>
+                                        </Label>
+                              <Label fx:id="lblDate" text="00:00:00">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="16.0" />
+                                 </font>
+                              </Label>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </HBox>
+                    </children>
+                    <effect>
+                        <DropShadow color="#00000020" offsetY="3.0" radius="10.0" />
+                    </effect>
+                </HBox>
+
+                <!-- Main Content Area -->
+                <VBox layoutX="10.0" layoutY="85.0" prefHeight="711.0" prefWidth="1100.0" spacing="25.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="96.0">
+                    <children>
+                        <!-- Top Stats Cards -->
+                        <HBox prefHeight="160.0" spacing="20.0">
+                            <children>
+                                <!-- Total Profit Card -->
+                                <VBox spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-padding: 25; -fx-background-radius: 15; -fx-border-color: #E5E7EB; -fx-border-radius: 15; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                            <children>
+                                                <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label style="-fx-font-size: 13; -fx-font-weight: bold; -fx-text-fill: #6B7280;" text="TOTAL PROFIT">
+                                                            <font>
+                                                                <Font name="Segoe UI Semibold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <Label style="-fx-font-size: 32; -fx-background-color: #10B98115; -fx-padding: 10; -fx-background-radius: 12;" text="📊" />
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="lblProfit" style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #10B981;" text="Rs. 0.00">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label style="-fx-font-size: 12; -fx-text-fill: #9CA3AF;" text="Since last week">
+                                            <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <effect>
+                                        <DropShadow color="#00000008" offsetY="3.0" radius="15.0" />
+                                    </effect>
+                                </VBox>
+
+                                <!-- Total Customers Card -->
+                                <VBox spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-padding: 25; -fx-background-radius: 15; -fx-border-color: #E5E7EB; -fx-border-radius: 15; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                            <children>
+                                                <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label style="-fx-font-size: 13; -fx-font-weight: bold; -fx-text-fill: #6B7280;" text="TOTAL CUSTOMERS">
+                                                            <font>
+                                                                <Font name="Segoe UI Semibold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <Label style="-fx-font-size: 32; -fx-background-color: #3B82F615; -fx-padding: 10; -fx-background-radius: 12;" text="👥" />
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="lblCustomers" style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #3B82F6;" text="0">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label style="-fx-font-size: 12; -fx-text-fill: #9CA3AF;" text="Since last week">
+                                            <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <effect>
+                                        <DropShadow color="#00000008" offsetY="3.0" radius="15.0" />
+                                    </effect>
+                                </VBox>
+
+                                <!-- Total Orders Card -->
+                                <VBox spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-padding: 25; -fx-background-radius: 15; -fx-border-color: #E5E7EB; -fx-border-radius: 15; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                            <children>
+                                                <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                                                    <children>
+                                                        <Label style="-fx-font-size: 13; -fx-font-weight: bold; -fx-text-fill: #6B7280;" text="TOTAL ORDERS">
+                                                            <font>
+                                                                <Font name="Segoe UI Semibold" size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <Label style="-fx-font-size: 32; -fx-background-color: #F59E0B15; -fx-padding: 10; -fx-background-radius: 12;" text="📦" />
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="lblOrders" style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #F59E0B;" text="0">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label style="-fx-font-size: 12; -fx-text-fill: #9CA3AF;" text="Since last week">
+                                            <font>
+                                                <Font name="Segoe UI" size="12.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <effect>
+                                        <DropShadow color="#00000008" offsetY="3.0" radius="15.0" />
+                                    </effect>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets left="10" right="10" />
+                            </padding>
+                        </HBox>
+
+                        <!-- Low Stock Alert Card -->
+                        <HBox prefHeight="315.0" prefWidth="1089.0" spacing="20.0">
+                            <children>
+                                <VBox prefHeight="180.0" prefWidth="500.0" spacing="15.0" style="-fx-background-color: #FFFFFF; -fx-padding: 30; -fx-background-radius: 15; -fx-border-color: #FEE2E2; -fx-border-radius: 15; -fx-border-width: 2;">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" spacing="15.0">
+                                            <children>
+                                                <Label style="-fx-font-size: 40; -fx-background-color: #FEE2E2; -fx-padding: 12; -fx-background-radius: 15;" text="⚠️" />
+                                                <VBox>
+                                                    <children>
+                                                        <Label style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6B7280;" text="LOW STOCK ALERT">
+                                                            <font>
+                                                                <Font name="Segoe UI Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label style="-fx-font-size: 12; -fx-text-fill: #9CA3AF;" text="Items requiring immediate attention">
+                                                            <font>
+                                                                <Font name="Segoe UI" size="12.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="lblCustomers1" style="-fx-font-size: 48; -fx-font-weight: bold; -fx-text-fill: #EF4444;" text="0">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="48.0" />
+                                            </font>
+                                        </Label>
+                                        <Label style="-fx-font-size: 13; -fx-text-fill: #9CA3AF;" text="Updated today">
+                                            <font>
+                                                <Font name="Segoe UI" size="13.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <effect>
+                                        <DropShadow color="#00000008" offsetY="3.0" radius="15.0" />
+                                    </effect>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </VBox>
+                        <AnchorPane prefHeight="323.0" prefWidth="547.0" style="-fx-background-color: linear-gradient(to right, #10B981, #059669); -fx-border-radius: 15; -fx-background-radius: 15;">
+                           <children>
+                              <AreaChart fx:id="salesChart" layoutX="-1.0" layoutY="21.0" prefHeight="268.0" prefWidth="547.0">
+                                <xAxis>
+                                  <CategoryAxis prefHeight="11.0" prefWidth="490.0" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis prefHeight="269.0" prefWidth="43.0" side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                              <Label layoutX="30.0" layoutY="13.0" text="Sales Analytics This Week" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="256.0" layoutY="286.0" text="Sales" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
