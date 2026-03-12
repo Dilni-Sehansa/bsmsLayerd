@@ -4,6 +4,7 @@ import lk.ijse.bsms.layered.dao.CRUDUtil;
 import lk.ijse.bsms.layered.dao.custom.OrderDetailDAO;
 import lk.ijse.bsms.layered.entity.OrderDetail;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,5 +51,14 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
     @Override
     public List<Long> getAllIds() throws SQLException, ClassNotFoundException {
         return List.of();
+    }
+
+    @Override
+    public double getTotalProfit() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CRUDUtil.execute("SELECT SUM(amount) FROM order_details");
+        if (rst.next()) {
+            return rst.getDouble(1);
+        }
+        return 0;
     }
 }

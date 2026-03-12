@@ -8,6 +8,7 @@ import lk.ijse.bsms.layered.dto.CustomerDTO;
 import lk.ijse.bsms.layered.dto.ItemDTO;
 import lk.ijse.bsms.layered.entity.Customer;
 import lk.ijse.bsms.layered.entity.Item;
+import net.sf.jasperreports.engine.JRException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -54,4 +55,9 @@ public class ItemBOImpl implements ItemBO {
     public boolean updateItemQty(Long itemId, int qty) throws SQLException, ClassNotFoundException {
         return false;
     }
+
+//    @Override
+//    public void printItemReport() throws SQLException, JRException, ClassNotFoundException {
+//        itemDAO.printReports();
+//    }
 }

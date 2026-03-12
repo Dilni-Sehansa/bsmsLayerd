@@ -52,6 +52,15 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     @Override
+    public int getOrderCount() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CRUDUtil.execute("SELECT COUNT(orderId) FROM orders");
+        if (rst.next()) {
+            return rst.getInt(1);
+        }
+        return 0;
+    }
+
+    @Override
     public boolean update(Order entity) throws SQLException, ClassNotFoundException {
         return false;
     }

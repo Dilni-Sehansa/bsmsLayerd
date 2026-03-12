@@ -2,6 +2,7 @@ package lk.ijse.bsms.layered.bo.custome;
 
 import lk.ijse.bsms.layered.bo.SuperBO;
 import lk.ijse.bsms.layered.dto.ItemDTO;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.Serializable;
 import java.sql.ResultSet;
@@ -22,4 +23,6 @@ public interface ItemBO  extends SuperBO {
     public List<ItemDTO> getAllItems() throws SQLException, ClassNotFoundException;
 
     public boolean updateItemQty(Long itemId, int qty) throws SQLException, ClassNotFoundException;
+
+//    void printItemReport() throws SQLException, JRException, ClassNotFoundException;
 }

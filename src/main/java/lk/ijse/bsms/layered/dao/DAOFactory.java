@@ -1,5 +1,6 @@
 package lk.ijse.bsms.layered.dao;
 
+import lk.ijse.bsms.layered.dao.custom.QueryDAO;
 import lk.ijse.bsms.layered.dao.custom.impl.*;
 
 public class DAOFactory {
@@ -20,7 +21,8 @@ public class DAOFactory {
         ORDERITEM,
         ORDER,
         PROFILE,
-        ORDERDETAILS
+        ORDERDETAILS,
+        QUERY
 //        ORDERDETAILS,
 //        QUARY
     }
@@ -36,9 +38,9 @@ public class DAOFactory {
                 return new ReturnDAOImpl();
             case SUPPLIER:
                 return new SupplierDAOImpl();
-            case DASHBOADRD:
-                return new DashboardDAOImpl();
-            case ORDERITEM:
+            case QUERY:
+                return new QueryDAOImpl();
+                case ORDERITEM:
                 return new OrderItemDAOImpl();
             case ORDER:
                 return new OrderDAOImpl();
@@ -46,8 +48,6 @@ public class DAOFactory {
                     return new ProfileDAOImpl();
             case ORDERDETAILS:
                 return new OrderDetailDAOImpl();
-//            case QUARY:
-//                return new QueryDAOImpl();
             default:
                 return null;
         }

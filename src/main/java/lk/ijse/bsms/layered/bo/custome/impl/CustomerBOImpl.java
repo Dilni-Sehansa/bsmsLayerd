@@ -47,7 +47,7 @@ public class CustomerBOImpl implements CustomerBO {
 
     @Override
     public List<Long> getAllCustomerIds() throws SQLException, ClassNotFoundException {
-//        return List.of();
+
         return customerDAO.getAllIds();
     }
 }

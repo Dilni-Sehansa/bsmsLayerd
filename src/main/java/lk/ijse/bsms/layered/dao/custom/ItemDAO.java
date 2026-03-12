@@ -9,5 +9,7 @@ import java.sql.SQLException;
 public interface ItemDAO extends CrudDAO<Item> {
     public boolean updateItemQty(Long itemId, int qty) throws SQLException, ClassNotFoundException;
 
-    public void printReports() throws SQLException, JRException, ClassNotFoundException ;
+//    public void printReports() throws SQLException, JRException, ClassNotFoundException ;
+
+    public int getLowStockCount() throws SQLException, ClassNotFoundException;
 }

@@ -10,6 +10,7 @@ module lk.ijse.bsms.layered {
     requires javafx.graphics;
 //    requires lk.ijse.bsms.layered;
 //    requires lk.ijse.bsms.layered;
+//    requires lk.ijse.bsms.layered;
 
 //    requires lk.ijse.bsms.layered;
 //    requires lk.ijse.bsms.layered;

@@ -7,4 +7,5 @@ import java.sql.SQLException;
 
 public interface OrderDAO extends CrudDAO<Order> {
     Long getLastInsertedId() throws SQLException, ClassNotFoundException;
+    public int getOrderCount() throws SQLException, ClassNotFoundException;
 }

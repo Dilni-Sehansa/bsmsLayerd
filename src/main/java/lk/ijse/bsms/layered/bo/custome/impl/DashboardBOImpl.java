@@ -2,6 +2,8 @@ package lk.ijse.bsms.layered.bo.custome.impl;
 
 import lk.ijse.bsms.layered.bo.custome.DashboardBO;
 import lk.ijse.bsms.layered.dao.CRUDUtil;
+import lk.ijse.bsms.layered.dao.DAOFactory;
+import lk.ijse.bsms.layered.dao.custom.*;
 import lk.ijse.bsms.layered.dto.DashboardDTO;
 import lk.ijse.bsms.layered.entity.Dashboard;
 
@@ -14,44 +16,35 @@ import java.util.Map;
 
 public class DashboardBOImpl implements DashboardBO {
 
+    CustomerDAO customerDAO = (CustomerDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.CUSTOMER);
+    ItemDAO itemDAO = (ItemDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.ITEM);
+    OrderDAO orderDAO = (OrderDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.ORDER);
+    OrderDetailDAO orderDetailDAO = (OrderDetailDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.ORDERDETAILS);
+    QueryDAO queryDAO = (QueryDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.QUERY);
+
+
     @Override
-    public DashboardDTO getDashboardSummary() throws SQLException, ClassNotFoundException {
-        double profit = 0;
-        int customers = 0;
-        int orders = 0;
-        int lowStock = 0;
+    public int getCustomerCount() throws SQLException, ClassNotFoundException {
+        return customerDAO.getCustomerCount();
+    }
 
-        ResultSet rst1 = CRUDUtil.execute("SELECT SUM(amount) FROM order_details");
-        if (rst1.next()) profit = rst1.getDouble(1);
+    @Override
+    public int getLowStockCount() throws SQLException, ClassNotFoundException {
+        return itemDAO.getLowStockCount();
+    }
 
-        ResultSet rst2 = CRUDUtil.execute("SELECT COUNT(cusId) FROM customer");
-        if (rst2.next()) customers = rst2.getInt(1);
+    @Override
+    public double getTotalProfit() throws SQLException, ClassNotFoundException {
+        return orderDetailDAO.getTotalProfit();
+    }
 
-        ResultSet rst3 = CRUDUtil.execute("SELECT COUNT(orderId) FROM orders");
-        if (rst3.next()) orders = rst3.getInt(1);
-
-        ResultSet rst4 = CRUDUtil.execute("SELECT COUNT(itemId) FROM item WHERE qty < 10");
-        if (rst4.next()) lowStock = rst4.getInt(1);
-
-        return new DashboardDTO(profit, customers, orders, lowStock);
+    @Override
+    public int getOrderCount() throws SQLException, ClassNotFoundException {
+        return orderDAO.getOrderCount();
     }
 
     @Override
     public Map<String, Double> getSalesChartData() throws SQLException, ClassNotFoundException {
-        Map<String, Double> chartData = new LinkedHashMap<>();
-
-        ResultSet rst = CRUDUtil.execute("SELECT DATE(o.orderDate), SUM(od.amount) " +
-                "FROM orders o " +
-                "JOIN order_details od ON o.orderId = od.orderId " +
-                "GROUP BY DATE(o.orderDate) " +
-                "ORDER BY DATE(o.orderDate) ASC LIMIT 7");
-
-        while (rst.next()) {
-
-            String date = rst.getString(1).split(" ")[0];
-            chartData.put(date, rst.getDouble(2));
-        }
-        return chartData;
+        return queryDAO.getSalesChartData();
     }
-
 }

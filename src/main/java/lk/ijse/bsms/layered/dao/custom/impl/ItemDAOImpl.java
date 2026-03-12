@@ -87,18 +87,29 @@ public class ItemDAOImpl implements ItemDAO {
         );
     }
 
-    public void printReports() throws SQLException, JRException, ClassNotFoundException {
+//    @Override
+//    public void printReports() throws SQLException, JRException, ClassNotFoundException {
+//        Connection conn = DBConnection.getInstance().getConnection();
+//
+//        InputStream inputStream = getClass().getResourceAsStream("/report/CustomerOrderBill.jrxml");
+//
+//        if (inputStream == null) {
+//            throw new JRException("Jasper file not found! Please check the path: /report/CustomerOrderBill.jrxml in resources folder");
+//        }
+//
+//        JasperReport jr = JasperCompileManager.compileReport(inputStream);
+//        JasperPrint jp = JasperFillManager.fillReport(jr, null, conn);
+//
+//        JasperViewer.viewReport(jp, false);
+//    }
 
-        Connection conn = DBConnection.getInstance().getConnection();
+    @Override
+    public int getLowStockCount() throws SQLException, ClassNotFoundException {
+        ResultSet rst = CRUDUtil.execute("SELECT COUNT(itemId) FROM item WHERE qty < 10");
 
-        InputStream inputStream =
-                getClass().getResourceAsStream("CustomerOrderBill.jrxml");
-
-        JasperReport jr = JasperCompileManager.compileReport(inputStream);
-
-        JasperPrint jp = JasperFillManager.fillReport(jr, null, conn);
-
-        JasperViewer jasperViewer = new JasperViewer(jp, false);
-        jasperViewer.setVisible(true);
+        if (rst.next()) {
+            return rst.getInt(1);
+        }
+        return 0;
     }
 }

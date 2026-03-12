@@ -176,13 +176,22 @@ public class ItemController implements Initializable {
         cmbCategoryId.getSelectionModel().clearSelection();
         cmbSupplierId.getSelectionModel().clearSelection();
     }
-    ItemDAOImpl itemDAO = new ItemDAOImpl();
-    @FXML
-    private void handleCustomerPrint(ActionEvent event) {
-        try{
-            itemDAO.printReports();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+//    ItemDAOImpl itemDAO = new ItemDAOImpl();
+//    @FXML
+//    private void handleCustomerPrint(ActionEvent event) {
+//        try{
+//            itemDAO.printReports();
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+@FXML
+private void handleCustomerPrint(ActionEvent event) {
+    try {
+        itemBO.printItemReport();
+    } catch (Exception e) {
+        e.printStackTrace();
+        new Alert(Alert.AlertType.ERROR, "Report Error: " + e.getMessage()).show();
     }
+}
 }

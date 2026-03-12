@@ -1,101 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CustomerOrderBill" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 
-    <queryString language="SQL">
-        <![CDATA[SELECT itemId, receivedPrice, price, status FROM item]]>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+ http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="ItemReport"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="555"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20">
+
+    <!-- SQL QUERY -->
+    <queryString>
+        <![CDATA[
+        SELECT itemId, receivedPrice, price, status FROM item
+        ]]>
     </queryString>
 
+    <!-- FIELDS -->
     <field name="itemId" class="java.lang.Long"/>
-    <field name="receivedPrice" class="java.math.BigDecimal"/>
-    <field name="price" class="java.math.BigDecimal"/>
+    <field name="receivedPrice" class="java.lang.Double"/>
+    <field name="price" class="java.lang.Double"/>
     <field name="status" class="java.lang.String"/>
 
+    <!-- TITLE -->
     <title>
         <band height="80">
+
             <staticText>
                 <reportElement x="0" y="0" width="555" height="40"/>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <textElement textAlignment="Center">
                     <font size="24" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Shani BookShop]]></text>
             </staticText>
+
             <staticText>
-                <reportElement x="0" y="40" width="555" height="20"/>
+                <reportElement x="0" y="40" width="555" height="30"/>
                 <textElement textAlignment="Center">
-                    <font size="12" isBold="false"/>
+                    <font size="14"/>
                 </textElement>
                 <text><![CDATA[Item Inventory Report]]></text>
             </staticText>
+
         </band>
     </title>
 
+    <!-- COLUMN HEADERS -->
     <columnHeader>
         <band height="30">
+
             <staticText>
-                <reportElement mode="Opaque" x="0" y="0" width="80" height="30" backcolor="#E0E0E0"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="0" y="0" width="120" height="30"/>
+                <textElement textAlignment="Center">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Item ID]]></text>
             </staticText>
+
             <staticText>
-                <reportElement mode="Opaque" x="80" y="0" width="150" height="30" backcolor="#E0E0E0"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="120" y="0" width="140" height="30"/>
+                <textElement textAlignment="Center">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Received Price]]></text>
             </staticText>
+
             <staticText>
-                <reportElement mode="Opaque" x="230" y="0" width="150" height="30" backcolor="#E0E0E0"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="260" y="0" width="140" height="30"/>
+                <textElement textAlignment="Center">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Selling Price]]></text>
             </staticText>
+
             <staticText>
-                <reportElement mode="Opaque" x="380" y="0" width="175" height="30" backcolor="#E0E0E0"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Center" verticalAlignment="Middle">
+                <reportElement x="400" y="0" width="155" height="30"/>
+                <textElement textAlignment="Center">
                     <font isBold="true"/>
                 </textElement>
                 <text><![CDATA[Status]]></text>
             </staticText>
+
         </band>
     </columnHeader>
 
+    <!-- DETAIL RECORDS -->
     <detail>
-        <band height="30">
+        <band height="25">
+
             <textField>
-                <reportElement x="0" y="0" width="80" height="30"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="0" y="0" width="120" height="25"/>
+                <textElement textAlignment="Center"/>
                 <textFieldExpression><![CDATA[$F{itemId}]]></textFieldExpression>
             </textField>
+
             <textField>
-                <reportElement x="80" y="0" width="150" height="30"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Right" verticalAlignment="Middle">
-                    <paragraph rightIndent="5"/>
-                </textElement>
+                <reportElement x="120" y="0" width="140" height="25"/>
+                <textElement textAlignment="Right"/>
                 <textFieldExpression><![CDATA[$F{receivedPrice}]]></textFieldExpression>
             </textField>
+
             <textField>
-                <reportElement x="230" y="0" width="150" height="30"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Right" verticalAlignment="Middle">
-                    <paragraph rightIndent="5"/>
-                </textElement>
+                <reportElement x="260" y="0" width="140" height="25"/>
+                <textElement textAlignment="Right"/>
                 <textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
             </textField>
+
             <textField>
-                <reportElement x="380" y="0" width="175" height="30"/>
-                <box><pen lineWidth="0.5"/></box>
-                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <reportElement x="400" y="0" width="155" height="25"/>
+                <textElement textAlignment="Center"/>
                 <textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
             </textField>
+
         </band>
     </detail>
+
 </jasperReport>

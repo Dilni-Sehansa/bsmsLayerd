@@ -10,8 +10,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public interface DashboardBO extends SuperBO {
-    public DashboardDTO getDashboardSummary() throws SQLException, ClassNotFoundException;
-
+    public int getCustomerCount() throws SQLException, ClassNotFoundException;
+    public int getLowStockCount() throws SQLException, ClassNotFoundException;
+    public double getTotalProfit() throws SQLException, ClassNotFoundException;
+    public int getOrderCount() throws SQLException, ClassNotFoundException;
     public Map<String, Double> getSalesChartData() throws SQLException, ClassNotFoundException;
 
 }

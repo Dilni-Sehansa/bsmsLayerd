@@ -49,11 +49,15 @@ public class DashboardController implements Initializable {
     private void loadDashboardData() {
         try {
 
-            DashboardDTO dto = dashboardBO.getDashboardSummary();
-            lblProfit.setText(String.format("Rs. %.2f", dto.getTotalProfit()));
-            lblCustomers.setText(String.valueOf(dto.getTotalCustomers()));
-            lblOrders.setText(String.valueOf(dto.getTotalOrders()));
-            lblCustomers1.setText(String.valueOf(dto.getLowStockCount()));
+            double totalProfit = dashboardBO.getTotalProfit();
+            int totalCustomers = dashboardBO.getCustomerCount();
+            int totalOrders = dashboardBO.getOrderCount();
+            int lowStock = dashboardBO.getLowStockCount();
+
+            lblProfit.setText(String.format("Rs. %.2f", totalProfit));
+            lblCustomers.setText(String.valueOf(totalCustomers));
+            lblOrders.setText(String.valueOf(totalOrders));
+            lblCustomers1.setText(String.valueOf(lowStock));
 
             loadChart();
 
