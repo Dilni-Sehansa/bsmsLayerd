@@ -3,11 +3,12 @@ module lk.ijse.bsms.layered {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-    requires net.sf.jasperreports.core;
+
     requires java.desktop;
     requires javafx.base;
     requires jdk.jdi;
     requires javafx.graphics;
+    requires net.sf.jasperreports.core;
 //    requires lk.ijse.bsms.layered;
 //    requires lk.ijse.bsms.layered;
 //    requires lk.ijse.bsms.layered;

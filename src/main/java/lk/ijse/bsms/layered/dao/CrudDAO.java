@@ -14,8 +14,6 @@ public interface CrudDAO <T> extends SuperDAO {
 
     public boolean delete(long id) throws SQLException, ClassNotFoundException;
 
-    public String genarativeID() throws SQLException, ClassNotFoundException;
-
     public boolean exit(long id) throws SQLException, ClassNotFoundException;
 
     public T search(long customerid) throws SQLException, ClassNotFoundException;

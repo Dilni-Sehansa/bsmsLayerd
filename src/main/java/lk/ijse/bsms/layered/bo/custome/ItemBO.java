@@ -24,5 +24,6 @@ public interface ItemBO  extends SuperBO {
 
     public boolean updateItemQty(Long itemId, int qty) throws SQLException, ClassNotFoundException;
 
-//    void printItemReport() throws SQLException, JRException, ClassNotFoundException;
+    public void printItemReport() throws SQLException, JRException, ClassNotFoundException;
+
 }

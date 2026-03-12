@@ -68,11 +68,11 @@ public class DashboardController implements Initializable {
 
     private void loadChart() throws SQLException, ClassNotFoundException {
         salesChart.getData().clear();
-        XYChart.Series<String, Number> series = new XYChart.Series<>(); //table eka adina eka
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Weekly Sales");
 
-        Map<String, Double> chartData = dashboardBO.getSalesChartData(); //database
-        for (Map.Entry<String, Double> entry : chartData.entrySet()) { //chart eke lakunukirima
+        Map<String, Double> chartData = dashboardBO.getSalesChartData();
+        for (Map.Entry<String, Double> entry : chartData.entrySet()) {
             series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
         }
 
@@ -99,8 +99,8 @@ public class DashboardController implements Initializable {
 
             lblDate.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
         }), new KeyFrame(Duration.seconds(1)));
-        clock.setCycleCount(Animation.INDEFINITE);// clock eka nawaththanna epa
+        clock.setCycleCount(Animation.INDEFINITE);
 
-        clock.play(); // clock eka wada karanna patan ganna
+        clock.play();
     }
 }

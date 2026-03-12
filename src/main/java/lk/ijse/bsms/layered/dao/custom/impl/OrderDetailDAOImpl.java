@@ -34,11 +34,6 @@ public class OrderDetailDAOImpl implements OrderDetailDAO {
     }
 
     @Override
-    public String genarativeID() throws SQLException, ClassNotFoundException {
-        return "";
-    }
-
-    @Override
     public boolean exit(long id) throws SQLException, ClassNotFoundException {
         return false;
     }

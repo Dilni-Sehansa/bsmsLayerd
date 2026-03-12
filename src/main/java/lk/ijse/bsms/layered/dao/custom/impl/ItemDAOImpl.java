@@ -52,11 +52,6 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public String genarativeID() throws SQLException, ClassNotFoundException {
-        return "";
-    }
-
-    @Override
     public boolean exit(long id) throws SQLException, ClassNotFoundException {
         return false;
     }
@@ -87,21 +82,6 @@ public class ItemDAOImpl implements ItemDAO {
         );
     }
 
-//    @Override
-//    public void printReports() throws SQLException, JRException, ClassNotFoundException {
-//        Connection conn = DBConnection.getInstance().getConnection();
-//
-//        InputStream inputStream = getClass().getResourceAsStream("/report/CustomerOrderBill.jrxml");
-//
-//        if (inputStream == null) {
-//            throw new JRException("Jasper file not found! Please check the path: /report/CustomerOrderBill.jrxml in resources folder");
-//        }
-//
-//        JasperReport jr = JasperCompileManager.compileReport(inputStream);
-//        JasperPrint jp = JasperFillManager.fillReport(jr, null, conn);
-//
-//        JasperViewer.viewReport(jp, false);
-//    }
 
     @Override
     public int getLowStockCount() throws SQLException, ClassNotFoundException {
@@ -111,5 +91,22 @@ public class ItemDAOImpl implements ItemDAO {
             return rst.getInt(1);
         }
         return 0;
+    }
+
+
+    @Override
+    public void printReports() throws SQLException, JRException {
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        InputStream is = getClass().getResourceAsStream("/report/CustomerOrderBill.jrxml");
+
+        if (is == null) {
+            System.out.println("Error: InputStream is null. Check report path!");
+            return;
+        }
+
+        JasperReport jasperReport = JasperCompileManager.compileReport(is);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);
+        JasperViewer.viewReport(jasperPrint, false);
     }
 }

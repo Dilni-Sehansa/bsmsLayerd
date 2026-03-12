@@ -60,7 +60,6 @@ public class ReturnController implements Initializable {
 
     @FXML
     void handleSearchOrder(KeyEvent event) {
-        // Only search when Enter is pressed
         if (event.getCode() != KeyCode.ENTER) return;
         searchOrder();
     }
@@ -76,7 +75,6 @@ public class ReturnController implements Initializable {
             Long id = Long.parseLong(txtOrderId.getText());
             if (returnBO.checkOrderExists(id)) {
                 new Alert(Alert.AlertType.INFORMATION, "Order Found!").show();
-                // Load items that belong to this order
                 List<Long> itemIds = returnBO.getItemIdsByOrderId(id);
                 txtItemId.setItems(FXCollections.observableArrayList(itemIds));
             } else {

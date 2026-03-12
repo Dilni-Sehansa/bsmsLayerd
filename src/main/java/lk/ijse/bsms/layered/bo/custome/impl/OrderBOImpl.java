@@ -27,7 +27,6 @@ public class OrderBOImpl implements OrderBO {
         try {
             connection.setAutoCommit(false);
 
-            // 1. Save the order
             Order order = new Order(null, orderDTO.getReceiveDate(), orderDTO.getOrderDate(), orderDTO.getCusId());
             boolean orderSaved = orderDAO.save(order);
             if (!orderSaved) {
@@ -35,14 +34,12 @@ public class OrderBOImpl implements OrderBO {
                 return false;
             }
 
-            // 2. Get the generated orderId
             Long orderId = orderDAO.getLastInsertedId();
             if (orderId == null) {
                 connection.rollback();
                 return false;
             }
 
-            // 3. Save each order detail and deduct stock
             for (OrderDetailDTO detail : orderDTO.getOrderDetails()) {
                 // Save order detail
                 OrderDetail orderDetail = new OrderDetail(orderId, detail.getItemId(), detail.getQty(), detail.getAmount());
@@ -52,7 +49,6 @@ public class OrderBOImpl implements OrderBO {
                     return false;
                 }
 
-                // Deduct stock from item table
                 OrderItem orderItem = new OrderItem(detail.getItemId(), null, detail.getQty(), 0, 0, null);
                 boolean stockUpdated = orderItemDAO.update(orderItem);
                 if (!stockUpdated) {

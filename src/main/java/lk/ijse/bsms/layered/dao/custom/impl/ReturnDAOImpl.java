@@ -52,11 +52,6 @@ public class ReturnDAOImpl implements ReturnDAO {
     }
 
     @Override
-    public String genarativeID() throws SQLException, ClassNotFoundException {
-        return "";
-    }
-
-    @Override
     public boolean exit(long id) throws SQLException, ClassNotFoundException {
         ResultSet rst = CRUDUtil.execute("SELECT orderId FROM orders WHERE orderId = ?", id);
         return rst.next();

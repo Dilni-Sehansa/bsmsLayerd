@@ -56,10 +56,6 @@ public class ProfileDAOImpl implements ProfileDAO {
 
     }
 
-    @Override
-    public String genarativeID() throws SQLException, ClassNotFoundException {
-        return "";
-    }
 
     @Override
     public boolean exit(long id) throws SQLException, ClassNotFoundException {

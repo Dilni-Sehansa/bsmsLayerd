@@ -56,8 +56,9 @@ public class ItemBOImpl implements ItemBO {
         return false;
     }
 
-//    @Override
-//    public void printItemReport() throws SQLException, JRException, ClassNotFoundException {
-//        itemDAO.printReports();
-//    }
+    @Override
+    public void printItemReport() throws SQLException, JRException , ClassNotFoundException{
+        itemDAO.printReports();
+    }
+
 }

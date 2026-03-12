@@ -70,10 +70,6 @@ public class OrderDAOImpl implements OrderDAO {
         return false;
     }
 
-    @Override
-    public String genarativeID() throws SQLException, ClassNotFoundException {
-        return "";
-    }
 
     @Override
     public boolean exit(long id) throws SQLException, ClassNotFoundException {

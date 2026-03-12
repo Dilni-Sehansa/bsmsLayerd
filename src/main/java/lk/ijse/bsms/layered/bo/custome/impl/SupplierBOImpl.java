@@ -14,13 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/*
-*  private Long supId;
-    private String supName;
-    private String phone;
-    private String address;
-    private String email;*/
-
 public class SupplierBOImpl implements SupplierBO {
 
     SupplierDAO supplierDAO = (SupplierDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOType.SUPPLIER);

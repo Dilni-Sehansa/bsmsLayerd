@@ -131,6 +131,8 @@ public class ItemController implements Initializable {
             if (itemBO.updateItem(dto)) {
                 new Alert(Alert.AlertType.INFORMATION, "Item Updated!").show();
                 loadAllItems();
+                clearFields();
+
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, "Update Failed!").show();
@@ -176,22 +178,14 @@ public class ItemController implements Initializable {
         cmbCategoryId.getSelectionModel().clearSelection();
         cmbSupplierId.getSelectionModel().clearSelection();
     }
-//    ItemDAOImpl itemDAO = new ItemDAOImpl();
-//    @FXML
-//    private void handleCustomerPrint(ActionEvent event) {
-//        try{
-//            itemDAO.printReports();
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
-@FXML
-private void handleCustomerPrint(ActionEvent event) {
-    try {
-        itemBO.printItemReport();
-    } catch (Exception e) {
-        e.printStackTrace();
-        new Alert(Alert.AlertType.ERROR, "Report Error: " + e.getMessage()).show();
+
+    @FXML
+    void handleCustomerPrint(ActionEvent event) {
+        try {
+            itemBO.printItemReport();
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Error: " + e.getMessage()).show();
+        }
     }
-}
 }
